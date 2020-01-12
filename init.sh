@@ -25,7 +25,7 @@ install_nginx() {
 install_redis() {
   if [ -z "$(command -v redis-cli)" ]
   then
-    sudo apt install pwgen redis -y
+    sudo apt install pwgen redis-server -y
     REDIS_PWD=$(pwgen 24 -1)
     echo "requirepass $REDIS_PWD" | sudo tee -a /etc/redis/redis.conf
     echo "bind 0.0.0.0" | sudo tee -a /etc/redis/redis.conf
