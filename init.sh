@@ -58,6 +58,6 @@ if [ -x "$host" ]; then
     echo "CF_Email=$CF_Email" | sudo tee -a /etc/envirement
     echo "CF_Key=$CF_Key" | sudo tee -a /etc/envirement
     install_node
-    curl https://sh.open51.net/cf-dns.js | node - "$host" "$CF_Email" "$CF_Key"
+    curl https://sh.open51.net/cf-dns.js | node - "$host" "$(curl icanhazip.com)" "$CF_Email" "$CF_Key"
   fi
 fi
