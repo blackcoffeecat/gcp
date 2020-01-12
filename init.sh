@@ -52,10 +52,10 @@ do
   esac
 done
 
-if [ -x "$host" ]; then
+if [ ! -z "$host" ]; then
   CF_Email="$(gcloud compute project-info describe --flatten=commonInstanceMetadata.CF_Email --format=object)"
   CF_Key="$(gcloud compute project-info describe --flatten=commonInstanceMetadata.CF_Key --format=object)"
-  if [ -x "$CF_Email" ] && [ -x "$CF_Key" ]; then
+  if [ ! -z "$CF_Email" ] && [ ! -z "$CF_Key" ]; then
     echo "CF_Email=$CF_Email" | sudo tee -a /etc/envirement
     echo "CF_Key=$CF_Key" | sudo tee -a /etc/envirement
     install_node
