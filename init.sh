@@ -66,7 +66,7 @@ if [ ! -z "$host" ]; then
     if [ -z "$(command -v dig)" ]; then
       sudo apt-get install -y dnsutils
     fi
-    $ADDR=$(dig +short "$host" 1.1.1.1 | head -1)
+    ADDR=$(dig +short "$host" 1.1.1.1 | head -1)
 
     if [ "$MY_ADDR" == "$ADDR" ]; then
       sudo hostname "$host"
