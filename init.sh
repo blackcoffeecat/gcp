@@ -19,6 +19,7 @@ install_nginx() {
       | sudo tee /etc/apt/sources.list.d/nginx.list
     curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
     sudo apt-get update && sudo apt-get install -y nginx
+    echo "PATH=\"\$PATH:/usr/sbin\"" | sudo tee -a /etc/profile
   fi
 }
 
