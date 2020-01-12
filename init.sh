@@ -35,13 +35,6 @@ install_redis() {
   fi
 }
 
-install_acme () {
-  if [ -z "$(command -v acme.sh)" ]
-  then
-    curl https://get.acme.sh | sh
-  fi
-}
-
 
 for ins in $installs;
 do
